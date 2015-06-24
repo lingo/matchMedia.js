@@ -6,7 +6,7 @@
     }
 
     var localMatchMedia = window.matchMedia,
-        hasMediaQueries = localMatchMedia('only all').matches,
+        hasMediaQueries = typeof(localMatchMedia) === 'function' && localMatchMedia('only all').matches,
         isListening     = false,
         timeoutID       = 0,    // setTimeout for debouncing 'handleChange'
         queries         = [],   // Contains each 'mql' and associated 'listeners' if 'addListener' is used
